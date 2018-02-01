@@ -18,16 +18,6 @@ CREATE TABLE library (
     );
 
 
-CREATE SEQUENCE event_id_seq
-START WITH 1
-INCREMENT BY 1
-NO MINVALUE
-NO MAXVALUE
-CACHE 1;
-
-alter table library alter column id set default nextval('event_id_seq');
-
-
 use lee_keyspace;
 
 select * from  products ;
