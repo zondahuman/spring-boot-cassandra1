@@ -9,7 +9,7 @@ server:
 spring:
         data:
               cassandra:
-                          contact-points: 127.0.0.1
+                          contact-points: 172.16.2.146
                           keyspace-name: boot_keyspace
                           username: ""
                           password: ""

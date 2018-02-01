@@ -21,7 +21,8 @@ public class LibraryCassandraConfig extends AbstractCassandraConfiguration {
 
 
     private static final String KEYSPACE_NAME = "boot_keyspace";
-    private static final String CONTACT_POINTS = "127.0.0.1";
+//    private static final String CONTACT_POINTS = "127.0.0.1";
+    private static final String CONTACT_POINTS = "172.16.2.146";
     private static final int PORT = 9042;
     private static final int MAX_POOL_CONNECTION = 50;
 
