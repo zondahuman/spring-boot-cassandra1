@@ -2,6 +2,7 @@ package com.abin.lee.spring.cassandra.api.controller;
 
 import com.abin.lee.spring.cassandra.api.model.LibraryEntity;
 import com.abin.lee.spring.cassandra.api.service.LibraryCassandraService;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,13 +58,14 @@ public class LibraryCassandraController {
     public String update(String id, String question) {
         String result = "FAILURE";
         try {
-            LibraryEntity libraryEntity = new LibraryEntity();
-            libraryEntity.setQuestion(question);
-            libraryEntity.setId(UUID.fromString(id));
-            libraryEntity.setCreateTime(new Date());
-            libraryEntity.setUpdateTime(new Date());
-            this.libraryCassandraService.update(libraryEntity);
-            result = "SUCCESS";
+            LibraryEntity libraryEntity = this.libraryCassandraService.findById(id);
+            if(ObjectUtils.notEqual(null, libraryEntity)) {
+                libraryEntity.setQuestion(question);
+                libraryEntity.setId(UUID.fromString(id));
+                libraryEntity.setUpdateTime(new Date());
+                this.libraryCassandraService.update(libraryEntity);
+                result = "SUCCESS";
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

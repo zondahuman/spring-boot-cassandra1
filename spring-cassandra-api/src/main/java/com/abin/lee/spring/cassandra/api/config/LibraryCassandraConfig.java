@@ -1,7 +1,10 @@
 package com.abin.lee.spring.cassandra.api.config;
 
+import com.google.common.primitives.Ints;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.data.cassandra.config.SchemaAction;
 import org.springframework.data.cassandra.config.java.AbstractCassandraConfiguration;
 import org.springframework.data.cassandra.convert.MappingCassandraConverter;
@@ -16,11 +19,11 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
  * com.abin.lee.spring.cassandra.api.config
  */
 @Configuration
-//@EnableCassandraRepositories("com.abin.lee.spring.cassandra.api.repository")
+@EnableCassandraRepositories("com.abin.lee.spring.cassandra.api.repository")
 public class LibraryCassandraConfig extends AbstractCassandraConfiguration {
 
-
-    private static final String KEYSPACE_NAME = "boot_keyspace";
+    @Autowired
+    private Environment env;
 //    private static final String CONTACT_POINTS = "127.0.0.1";
     private static final String CONTACT_POINTS = "172.16.2.146";
     private static final int PORT = 9042;
@@ -28,18 +31,20 @@ public class LibraryCassandraConfig extends AbstractCassandraConfiguration {
 
     @Override
     protected String getKeyspaceName() {
-
-        return KEYSPACE_NAME;
+//        return KEYSPACE_NAME;
+        return env.getProperty("spring.data.cassandra.keyspace-name");
     }
 
     @Override
     protected String getContactPoints() {
-        return CONTACT_POINTS;
+//        return CONTACT_POINTS;
+        return env.getProperty("spring.data.cassandra.contact-points");
     }
 
     @Override
     protected int getPort() {
-        return PORT;
+//        return PORT;
+        return Ints.tryParse(env.getProperty("spring.data.cassandra.port"));
     }
 
     @Override

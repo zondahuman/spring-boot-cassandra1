@@ -30,7 +30,7 @@ public class CassandraDeleteTest {
         try {
             CloseableHttpClient httpClient = HttpClientUtil.getHttpClient();
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-            String id = "83d256d0-dd69-4723-92d2-6d8c06c7468a";
+            String id = "e18ed0c1-ea72-42ae-a7f4-da0f2504f12f";
             nvps.add(new BasicNameValuePair("id", id));
 //            String randomString = new RandomStringGenerator.Builder().build().generate(10);
 //            nvps.add(new BasicNameValuePair("question", randomString));

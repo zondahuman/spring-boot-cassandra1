@@ -31,7 +31,7 @@ public class CassandraUpdateTest {
         try {
             CloseableHttpClient httpClient = HttpClientUtil.getHttpClient();
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-            String id = "e18ed0c1-ea72-42ae-a7f4-da0f2504f12f";
+            String id = "d4ad04da-a8c1-462b-a924-a05cc6c346e2";
             nvps.add(new BasicNameValuePair("id", id));
             String randomString = new RandomStringGenerator.Builder().build().generate(5, 10);
 //            nvps.add(new BasicNameValuePair("question", randomString));
