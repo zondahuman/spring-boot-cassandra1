@@ -8,7 +8,7 @@ march action
 
 create keyspace boot_keyspace with replication = {'class':'SimpleStrategy', 'replication_factor':1};
 use boot_keyspace;
-select * from  products ;
+select * from  library ;
 
 CREATE TABLE library (
        id bigint PRIMARY KEY,
