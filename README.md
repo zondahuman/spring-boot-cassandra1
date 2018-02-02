@@ -58,6 +58,12 @@ apache-cassandra-3.11.1
 * wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.5/zookeeper-3.4.5.tar.gz
 
 
+# Check Cluster Status :
+
+./nodetool status
+
+
+
 
 
 
