@@ -2,6 +2,8 @@ package com.abin.lee.spring.cassandra.api.repository;
 
 import com.abin.lee.spring.cassandra.api.model.LibraryEntity;
 import org.springframework.data.cassandra.repository.TypedIdCassandraRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,5 +19,7 @@ public interface LibraryCassandraRepository extends TypedIdCassandraRepository<L
 
     List<LibraryEntity> findAll();
 
+    Page<LibraryEntity> findAll(Pageable pageable);
+//  PagingAndSortingRepository<User, Long> repository = // get access to a bean
 
 }
