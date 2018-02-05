@@ -63,6 +63,8 @@ apache-cassandra-3.11.1
 ./nodetool status
 
 
+# Cassandra Cql3
+INSERT INTO library (id,createtime,question,updatetime) VALUES (uuid(), dateof(now()),'PgXOp', dateof(now()));
 
 
 
