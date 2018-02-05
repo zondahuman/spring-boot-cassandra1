@@ -4,7 +4,12 @@ import com.abin.lee.spring.cassandra.api.model.LibraryEntity;
 import com.abin.lee.spring.cassandra.api.service.LibraryCassandraService;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -95,6 +100,23 @@ public class LibraryCassandraController {
         }
         return libraryEntityList;
     }
+
+
+    @RequestMapping(value = "/findByPageable", method= RequestMethod.GET)
+    public List<LibraryEntity> findByPageable(@PageableDefault(value = 15, sort = { "id" }, direction = Sort.Direction.DESC)
+                                         Pageable pageable) {
+        return this.libraryCassandraService.findAll(pageable);
+    }
+
+
+    @RequestMapping(value = "/findByPage", method= RequestMethod.GET)
+    public List<LibraryEntity> findByPage(Integer pageNum, Integer pageSize) {
+        return this.libraryCassandraService.findAll(pageNum, pageSize);
+    }
+
+
+
+
 
 
 }
