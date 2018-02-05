@@ -102,17 +102,17 @@ public class LibraryCassandraController {
     }
 
 
-    @RequestMapping(value = "/findByPageable", method= RequestMethod.GET)
-    public List<LibraryEntity> findByPageable(@PageableDefault(value = 15, sort = { "id" }, direction = Sort.Direction.DESC)
-                                         Pageable pageable) {
-        return this.libraryCassandraService.findAll(pageable);
-    }
-
-
-    @RequestMapping(value = "/findByPage", method= RequestMethod.GET)
-    public List<LibraryEntity> findByPage(Integer pageNum, Integer pageSize) {
-        return this.libraryCassandraService.findAll(pageNum, pageSize);
-    }
+//    @RequestMapping(value = "/findByPageable", method= RequestMethod.GET)
+//    public List<LibraryEntity> findByPageable(@PageableDefault(value = 15, sort = { "id" }, direction = Sort.Direction.DESC)
+//                                         Pageable pageable) {
+//        return this.libraryCassandraService.findAll(pageable);
+//    }
+//
+//
+//    @RequestMapping(value = "/findByPage", method= RequestMethod.GET)
+//    public List<LibraryEntity> findByPage(Integer pageNum, Integer pageSize) {
+//        return this.libraryCassandraService.findAll(pageNum, pageSize);
+//    }
 
 
 

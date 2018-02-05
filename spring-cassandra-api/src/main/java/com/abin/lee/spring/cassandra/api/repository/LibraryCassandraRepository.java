@@ -19,7 +19,7 @@ public interface LibraryCassandraRepository extends TypedIdCassandraRepository<L
 
     List<LibraryEntity> findAll();
 
-    Page<LibraryEntity> findAll(Pageable pageable);
+//    Page<LibraryEntity> findAll(Pageable pageable);
 //  PagingAndSortingRepository<User, Long> repository = // get access to a bean
 
 }

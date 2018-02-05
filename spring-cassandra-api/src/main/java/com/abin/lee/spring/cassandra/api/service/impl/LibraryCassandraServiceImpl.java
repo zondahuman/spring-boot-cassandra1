@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,21 +53,22 @@ public class LibraryCassandraServiceImpl implements LibraryCassandraService {
     }
 
 
-    public List<LibraryEntity> findAll(Integer pageNum, Integer pageSize) {
-        List<LibraryEntity>  libraryEntityList = null;
-        Page<LibraryEntity> libraryList = this.libraryCassandraRepository.findAll(new PageRequest(pageNum, pageSize));
-        libraryEntityList = libraryList.getContent();
-        return libraryEntityList;
-    }
-
-
-    @Override
-    public List<LibraryEntity> findAll(Pageable pageable) {
-        List<LibraryEntity>  libraryEntityList = null;
-        Page<LibraryEntity> libraryList = this.libraryCassandraRepository.findAll(pageable);
-        libraryEntityList = libraryList.getContent();
-        return libraryEntityList;
-    }
+//    public List<LibraryEntity> findAll(Integer pageNum, Integer pageSize) {
+//        List<LibraryEntity>  libraryEntityList = null;
+//        Sort sort = new Sort(Sort.Direction.DESC, "id");
+//        Page<LibraryEntity> libraryList = this.libraryCassandraRepository.findAll(new PageRequest(pageNum, pageSize, sort));
+//        libraryEntityList = libraryList.getContent();
+//        return libraryEntityList;
+//    }
+//
+//
+//    @Override
+//    public List<LibraryEntity> findAll(Pageable pageable) {
+//        List<LibraryEntity>  libraryEntityList = null;
+//        Page<LibraryEntity> libraryList = this.libraryCassandraRepository.findAll(pageable);
+//        libraryEntityList = libraryList.getContent();
+//        return libraryEntityList;
+//    }
 
     public void test() {
         LibraryEntity q = new LibraryEntity();

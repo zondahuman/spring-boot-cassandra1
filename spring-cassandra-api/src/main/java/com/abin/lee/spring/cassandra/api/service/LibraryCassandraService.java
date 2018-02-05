@@ -23,9 +23,9 @@ public interface LibraryCassandraService {
 
     List<LibraryEntity> findAll();
 
-    List<LibraryEntity> findAll(Integer pageNum, Integer pageSize);
-
-    List<LibraryEntity> findAll(Pageable pageable);
+//    List<LibraryEntity> findAll(Integer pageNum, Integer pageSize);
+//
+//    List<LibraryEntity> findAll(Pageable pageable);
 
 
 }
